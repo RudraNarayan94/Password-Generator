@@ -11,7 +11,7 @@ function App() {
 
   const copyPasswordToClipboard = useCallback(() => {
     passwordRef.current?.select();
-    passwordRef.current?.setSelectionRange(0, 20);
+    passwordRef.current?.setSelectionRange(0, 99);
     window.navigator.clipboard.writeText(password);
   }, [password]);
 
@@ -21,7 +21,7 @@ function App() {
     if (numberAllowed) str += "0123456789";
     if (charAllowed) str += "!@#$%^&*-_+=[]{}~`";
 
-    for (let i = 1; i < str.length; i++) {
+    for (let i = 1; i <= length; i++) {
       let ind = Math.floor(Math.random() * str.length + 1);
       pass += str.charAt(ind);
     }
